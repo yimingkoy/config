@@ -8,8 +8,8 @@ set expandtab
 set ignorecase
 set ruler
 set tags=./tags,../tags
-set tags+=~/study/debug/tags
-set tags+=~/study/linux-3.18.25/tags
+"set tags+=~/study/debug/tags
+"set tags+=~/study/linux-3.18.25/tags
 
 "set tags+=~/study/linux-2.6.11/tags
 "compiler gcc

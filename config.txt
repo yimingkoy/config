@@ -1,0 +1,17 @@
+#prompt
+
+PROMPT='%{$fg_bold[green]%}%d-%{$fg_bold[blue]%}$(git_prompt_info)
+%{$fg_bold[blue]%}> % %{$reset_color%}'
+-------------------------------------------------------------------
+
+#fasd
+git clone https://github.com/clvv/fasd.git
+cd fasd
+make install
+
+-------------------------------------------------------------------
+
+#oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+#chsh -s /bin/zsh
