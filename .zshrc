@@ -83,5 +83,5 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vi=vim
-export VIMRUNTIME=/Users/yimingwa/.vim
+#export VIMRUNTIME=/Users/yimingwa/.vim
 eval "$(fasd --init auto)"
