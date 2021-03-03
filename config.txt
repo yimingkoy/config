@@ -18,3 +18,5 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 #global (gtags)
 sudo apt install global
+
+#vim  /usr/share/vim
