@@ -15,3 +15,6 @@ make install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 #chsh -s /bin/zsh
+
+#global (gtags)
+sudo apt install global

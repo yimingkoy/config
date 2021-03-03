@@ -28,11 +28,12 @@ let Tlist_Use_Right_Window=1
 let Tlist_Compart_Format = 1
 let Tlist_File_Fold_Auto_Close=1
 let Tlist_Show_One_File = 1
-let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
-"map <F5> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
-"imap <F5> <ESC>:!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR><CR> :TlistUpdate<CR>
-map <F5> :!ctags -R --c-kinds=+p --fields=+lS --extra=+q .<CR><CR> :TlistUpdate<CR>
-imap <F5> <ESC>:!ctags -R --c-kinds=+p --fields=+lS --extra=+q .<CR><CR> :TlistUpdate<CR>
+let Tlist_Ctags_Cmd='/usr/bin/ctags'
+"map <F5> :!ctags -R --c-kinds=+p --fields=+lS --extra=+q .<CR><CR> :TlistUpdate<CR>
+"imap <F5> <ESC>:!ctags -R --c-kinds=+p --fields=+lS --extra=+q .<CR><CR> :TlistUpdate<CR>
+"map <F5> :cw<CR>
+"imap <F5> <Esc>:cw<CR>
+nmap <F5>:cw<CR> "open quickfix
 nmap <F4> :TlistToggle<CR> "function variable
 map <F2> :call CompileRunGcc()<CR>
 " F3 NERDTree
@@ -47,7 +48,7 @@ func! CompileRunGcc()  "compile run program
     endfunc
 nmap <F10> :call Search_Word()<CR> "open quickfix
 "nmap <F2> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-nnoremap <silent> <F6> :Grep<CR> "look for grep
+nnoremap <silent> <F6> :Grep<CR> 
 inoremap <F8><C-x><C-o> "intellegent completion
 nnoremap <silent> <F7> :A<CR>
 set updatetime=100
@@ -57,7 +58,8 @@ set write
 set ambiwidth=double
 syntax on
 "colorscheme default
-colorscheme jungle 
+"colorscheme jungle 
+colorscheme darkblue 
 let g:SuperTabRetainCompletionType=2
 let g:SuperTabDefaultCompletionType="<C-P>"
 set nocp
@@ -88,19 +90,25 @@ let g:winManagerWindowLayout = "BufExplorer,FileExplorer|TagList"
 let g:winManagerWidth = 30
 let g:defaultExplorer = 0
 nmap <F11> :WMToggle<cr>
+set cscopetag
+let GtagsCscope_Auto_Load = 1
+let g:GtagsCscope_Quiet = 1
+let g:Gtags_Close_When_Single = 1
 
 if has("cscope")
-    set csprg=/usr/local/bin/cscope
+    "set csprg=/usr/bin/cscope
+    set csprg=gtags-cscope
     set cscopetag 
     set csto=0
     set cst
     set cscopequickfix=s-,c-,d-,i-,t-,e- 
     set nocsverb
     if exists("$sourceDir")
-        cs add $sourceDir/cscope.out 
-        set tags+=$sourceDir/tags
-    elseif $CSCOPE_DB !=""
-        cs add $CSCOPE_DB
+"        cs add $sourceDir/cscope.out 
+"        set tags+=$sourceDir/tags
+"    elseif $CSCOPE_DB !=""
+"       cs add $CSCOPE_DB
+       cs add GTAGS
     endif
     
     set csverb
